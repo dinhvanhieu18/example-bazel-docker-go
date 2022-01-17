@@ -1,0 +1,18 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["handler.go"],
+    importpath = "demo/app/internal",
+    visibility = ["//app:__subpackages__"],
+    deps = [
+        "//app/constant:go_default_library",
+        "//app/util:go_default_library",
+    ],
+)
+
+go_test(
+    name = "go_default_test",
+    srcs = ["handler_test.go"],
+    embed = [":go_default_library"],
+)
