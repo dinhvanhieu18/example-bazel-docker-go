@@ -8,3 +8,6 @@ build:
 
 run:
 	bazel run //app/cmd:cmd
+
+test:
+	bazel test //...
